@@ -1,0 +1,21 @@
+LOAD_ROM_1  0x100000 0xFFF
+{
+	LDROM_Bootloader.bin  0x100000 0xFFF
+	{
+		startup_NUC1262.o (RESET, +FIRST)
+        .ANY (+RO)
+	}
+	
+	SRAM  0x20000000 0x4FF0
+	{
+		* (+RW, +ZI)
+	}
+}
+
+LOAD_ROM_2  0x1D000 0x2000
+{
+	APROM_Bootloader.bin  0x1D000 0x2000
+	{
+        .ANY (+RO)
+	}
+}
